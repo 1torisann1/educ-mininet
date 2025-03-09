@@ -6,6 +6,9 @@ from mininet.link import TCLink
 import time
 import os
 
+LOG_DIR = "./log"
+CLOUD_EXEC_FILE = "../host/TcpServer"
+
 # switchをnamespaceに入れるときも入れないときも使用可能
 class MyNetwork(Mininet):
     def configureControlNetwork(self):
@@ -30,6 +33,25 @@ class HostV4(Host):
                  'default.autoconf=0', 'lo.autoconf=0' ]
         for cfg in cfgs:
             self.cmd( 'sysctl -w net.ipv6.conf.' + cfg )
+
+class CloudV4(Host):
+    def __init__(self, *args, **kwargs):
+        super(CloudV4, self).__init__(*args, **kwargs)
+        cfgs = ['all.disable_ipv6=1', 'default.disable_ipv6=1',
+                'default.autoconf=0', 'lo.autoconf=0']
+        for cfg in cfgs:
+            self.cmd('sysctl -w net.ipv6.conf.' + cfg)
+
+    def config(self, **kwargs):
+        super(CloudV4, self).config(**kwargs)
+        # LOG_DIR が存在しない場合は作成
+        if not os.path.exists(LOG_DIR):
+            os.makedirs(LOG_DIR, exist_ok=True)
+            
+        # CLOUD_EXEC_FILEをバックグラウンドで実行し、ログを出力
+        log_file = os.path.join(LOG_DIR, f"{self.name}.log")
+        error_log_file = os.path.join(LOG_DIR, f"{self.name}-error.log")
+        self.cmd(f"{CLOUD_EXEC_FILE} >> {log_file} 2>> {error_log_file} &")
 
 class SwitchV4(LinuxBridge):
     def __init__(self, *args, **kwargs):
