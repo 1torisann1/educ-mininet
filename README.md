@@ -5,6 +5,11 @@
 - host
   仮想ネットワークのクライアント、サーバで実行
   - TcpClient.cpp
+    - 実行時にサーバIP指定
+  - TcpServer.cpp
+  - UdpClient.cpp
+    - 実行時にサーバIP指定
+  - UdpServer.cpp
   
 - mininet
   仮想ネットワークの起動
@@ -25,3 +30,28 @@
     - 外部ネットワークへの接続可能
 
 #### 動かし方
+- hostディレクトリ内でコンパイル
+  ```
+  cd host
+  make all
+  ```
+- TreeTopo.pyを実行
+  ```
+  cd mininet
+  sudo python3 TreeTopo.py
+  ```
+- CLIにてxtermを起動
+  ```
+  xterm [ノード名をスペース挟んで羅列]
+  ```
+- Client, Serverのコード実行
+  ```
+  # サーバ側
+  ../host/TcpServer
+  ../host/UdpServer
+  ```
+  ```
+  # クライアント側
+  ../host/TcpClient [サーバIPアドレス]
+  ../host/UdpClient [サーバIPアドレス]
+  ```
