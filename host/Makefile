@@ -1,7 +1,7 @@
 CXX = g++
 CXXFLAGS = -std=c++11
 
-all: TcpServer TcpClient
+all: TcpServer TcpClient UdpServer UdpClient
 
 TcpServer: TcpServer.cpp
 	$(CXX) $(CXXFLAGS) TcpServer.cpp -o TcpServer
@@ -16,4 +16,4 @@ UdpServer: UdpServer.cpp
 	$(CXX) $(CXXFLAGS) UdpServer.cpp -o UdpServer
 
 clean:
-	rm -f TcpServer TcpClient
+	rm -f TcpServer TcpClient UdpServer UdpClient
