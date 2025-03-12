@@ -1,0 +1,1 @@
+USE_TCP = False # True:TCP, False:UDP

@@ -9,8 +9,11 @@ TcpServer: TcpServer.cpp
 TcpClient: TcpClient.cpp
 	$(CXX) $(CXXFLAGS) TcpClient.cpp -o TcpClient
 
-server_multi: server_multi.cpp
-	$(CXX) $(CXXFLAGS) server_multi.cpp -o server_multi
+UdpClient: UdpClient.cpp
+	$(CXX) $(CXXFLAGS) UdpClient.cpp -o UdpClient
+
+UdpServer: UdpServer.cpp
+	$(CXX) $(CXXFLAGS) UdpServer.cpp -o UdpServer
 
 clean:
 	rm -f TcpServer TcpClient

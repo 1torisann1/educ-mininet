@@ -5,6 +5,8 @@ release
 gmon.out
 host/TcpClient
 host/TcpServer
+host/UdpClient
+host/UdpServer
 mininet/log/*.log
 *.swp
 *.pcap
