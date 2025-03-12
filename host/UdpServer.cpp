@@ -6,7 +6,7 @@
 #include <arpa/inet.h>
 #include <unistd.h>
 
-#define UDP_SERVER_PORT 8080
+#define UDP_SERVER_PORT 8888
 #define BUFFER_SIZE 1024
 
 int main() {

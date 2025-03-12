@@ -6,7 +6,7 @@ from mininet.node import NullController
 from mininet.link import Intf
 from mininet.link import TCLink
 
-from NodeClass import HostV4, SwitchV4, CloudV4, MyNetwork
+from NodeClass import HostV4, SwitchV4,MyNetwork
 
 HOST_NUM = 2
 DELAY = '10ms' # リンク遅延
@@ -45,7 +45,7 @@ class SmartCityTopo(Topo):
                 intfName2 = f"{downSwitch}-eth{i}"  # スイッチ側のインターフェース名
                 self.addLink(userHost, downSwitch, intfName1=intfName1, intfName2=intfName2, bw=BW, delay=DELAY)
             idx += 1
-        cloudHost = self.addHost('h20', cls=CloudV4, mac='00:00:00:02:00:20', ip='10.0.2.20')
+        cloudHost = self.addHost('h20', cls=HostV4, mac='00:00:00:02:00:20', ip='10.0.2.20')
         self.addLink(cloudHost, topSwitch, intfName1='h20-eth0', intfName2='s1-eth1', bw=BW, delay=DELAY)
         
 if __name__ == '__main__':

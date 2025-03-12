@@ -5,12 +5,9 @@ from mininet.link import TCLink
 
 import time
 import os
-import config
-
 
 LOG_DIR = "./log"
 TCP_CLOUD_EXEC_FILE = "../host/TcpServer"
-UDP_CLOUD_EXEC_FILE = "../host/UdpServer"
 
 # switchをnamespaceに入れるときも入れないときも使用可能
 class MyNetwork(Mininet):
@@ -52,12 +49,9 @@ class CloudV4(Host):
             os.makedirs(LOG_DIR, exist_ok=True)
             
         # CLOUD_EXEC_FILEをバックグラウンドで実行し、ログを出力
-        log_file = os.path.join(LOG_DIR, f"{self.name}.log")
-        error_log_file = os.path.join(LOG_DIR, f"{self.name}-error.log") 
-        # if config.USE_TCP:
-        #     self.cmd(f"{TCP_CLOUD_EXEC_FILE} >> {log_file} 2>> {error_log_file} &")
-        # else:
-        #     self.cmd(f"{UDP_CLOUD_EXEC_FILE} >> {log_file} 2>> {error_log_file} &")
+        # log_file = os.path.join(LOG_DIR, f"{self.name}.log")
+        # error_log_file = os.path.join(LOG_DIR, f"{self.name}-error.log") 
+        # self.cmd(f"{TCP_CLOUD_EXEC_FILE} >> {log_file} 2>> {error_log_file} &")
 
 class SwitchV4(LinuxBridge):
     def __init__(self, *args, **kwargs):
