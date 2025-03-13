@@ -2,6 +2,7 @@ CXX = g++
 CXXFLAGS = -std=c++11
 
 all: TcpServer TcpClient UdpServer UdpClient
+#make all でTcpServer, TcpClient, UdpServer, UdpClientをすべてコンパイルして実行ファイルを作成
 
 TcpServer: TcpServer.cpp
 	$(CXX) $(CXXFLAGS) TcpServer.cpp -o TcpServer

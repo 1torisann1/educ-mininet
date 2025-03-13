@@ -9,7 +9,7 @@ from mininet.link import TCLink
 from NodeClass import HostV4, SwitchV4,MyNetwork
 
 HOST_NUM = 2
-DELAY = '10ms' # リンク遅延
+DELAY = '5ms' # リンク遅延を自在にかける
 BW = 10 #  帯域幅
 
 class SmartCityTopo(Topo):
@@ -52,7 +52,7 @@ if __name__ == '__main__':
     setLogLevel( 'info' )
     net = MyNetwork(topo=SmartCityTopo(), controller=NullController, link=TCLink)
 
-    net.start()
+    net.start() #mininet起動
 
     # CLIに移行
     CLI(net)
