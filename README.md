@@ -1,8 +1,8 @@
 # educ-mininet
 西研新b4教育用　（TCP・UDP）
 
-#### 各ディレクトリの説明
-- host
+### 各ディレクトリの説明
+- host/
   仮想ネットワークのクライアント、サーバで実行
   - TcpClient.cpp
     - 実行時にサーバIP指定
@@ -11,7 +11,7 @@
     - 実行時にサーバIP指定
   - UdpServer.cpp
   
-- mininet
+- mininet/
   仮想ネットワークの起動
   - NodeClass.py
     - ホスト、スイッチの設定が書いてある
@@ -31,7 +31,7 @@
     - 外部ネットワークへの接続可能
     - <img width="465" alt="Image" src="https://github.com/user-attachments/assets/1ed6d8b2-4030-4bbb-bded-ef5c30da3082" />
 
-#### 動かし方
+### 動かし方
 - hostディレクトリ内でコンパイル
   ```
   cd host
