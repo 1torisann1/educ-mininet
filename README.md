@@ -44,7 +44,7 @@
   ```
 - CLIにてxtermを起動
   ```
-  xterm h0 h1 ...
+  mininet> xterm h0 h1 ...
   ```
 - Client, Serverのコード実行
   ```
